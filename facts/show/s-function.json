@@ -18,7 +18,9 @@
       "apiKeyRequired": false,
       "requestParameters": {},
       "requestTemplates": {
-        "application/json": ""
+        "application/json": {
+            "color": "$input.params('color')"
+        }
       },
       "responses": {
         "400": {
