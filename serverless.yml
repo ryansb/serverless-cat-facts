@@ -1,0 +1,26 @@
+service: catfacts
+
+frameworkVersion: ">=1.16.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python3.6
+
+package:
+  include:
+    - common/**
+    - show.py
+    - catfacts.json
+  exclude:
+    - requirements.txt
+    - serverless.yml
+    - README.md
+    - LICENSE.txt
+
+functions:
+  show:
+    handler: show.handler
+    events:
+      - http:
+          path: /
+          method: get
